@@ -1,20 +1,17 @@
 {
   "name": "ora-server",
-  "version": "2.0.0",
-  "description": "ORA.MD - RSS News Aggregator Server",
+  "version": "3.0.0",
+  "description": "ORA.MD - RSS + AI News Aggregator",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node --watch server.js"
+    "start": "node server.js"
   },
-  "keywords": ["news", "rss", "moldova", "parser"],
-  "author": "ORA.MD",
-  "license": "ISC",
   "dependencies": {
     "axios": "^1.16.1",
     "cors": "^2.8.6",
     "express": "^5.2.1",
     "node-cron": "^4.2.1",
-    "rss-parser": "^3.13.0"
+    "rss-parser": "^3.13.0",
+    "@anthropic-ai/sdk": "^0.39.0"
   }
 }
