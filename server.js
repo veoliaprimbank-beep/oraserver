@@ -40,7 +40,12 @@ const SOURCES = [
   { id:'nokta',     name:'Nokta.md',      url:'https://nokta.md/feed',             cat:'Общество',  lang:'ru' },
   { id:'deschide',  name:'Deschide.md',   url:'https://deschide.md/rss',           cat:'Политика',  lang:'ro' },
   { id:'eved',      name:'eVedomosti.md', url:'http://www.evedomosti.md/rss.php',  cat:'Политика',  lang:'ru' },
-  { id:'nbm',       name:'НБМ',           url:'https://www.bnm.md/ro/content/rss', cat:'Экономика', lang:'ro' },
+  { id:'nbm',       name:'НБМ',           url:'https://www.bnm.md/ro/content/rss', cat:'Экономика', lang:'ro' },{ id:'unimedia',  name:'Unimedia.md',   url:'https://unimedia.info/feed/',        cat:'Политика',  lang:'ro' },
+  { id:'stiri',     name:'Stiri.md',      url:'https://stiri.md/feed',              cat:'Общество',  lang:'ro' },
+  { id:'ziua',      name:'Ziua.md',       url:'https://ziua.md/feed/',              cat:'Общество',  lang:'ro' },
+  { id:'moldova',   name:'Moldova.org',   url:'https://www.moldova.org/feed/',      cat:'Общество',  lang:'ro' },
+  { id:'locals',    name:'Locals.md',     url:'https://locals.md/feed',             cat:'Общество',  lang:'ro' },
+  
 ];
 
 let cache = {
