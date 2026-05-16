@@ -276,7 +276,7 @@ async function parseAll() {
   // AI агенты
   if (process.env.ANTHROPIC_API_KEY) {
     console.log('\n─── AI агенты ───');
-    cache.articles = await agentTranslator(cache.articles);
+    
     cache.articles = await agentEditor(cache.articles);
     cache.articles = await agentSummarizer(cache.articles);
     await agentTrends(cache.articles);
