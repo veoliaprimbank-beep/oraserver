@@ -223,7 +223,20 @@ function detectCat(title,cats,def){
   return cats?.[0]||def||'Societate';
 }
 
-function withAI(a){return{...a,displayTitle:a.aiTitle||a.title,displayDescription:a.summary||a.description};}
+function withAI(a){return{...a,displayTitle:a.aiTitle||a.title,displayDescription:a.summary||a.description};}function liteArticle(a){
+  return {
+    id:a.id,
+    source:a.source,
+    sourceId:a.sourceId,
+    category:a.category,
+    title:a.aiTitle||a.title,
+    link:a.link,
+    image:a.image,
+    pubDate:a.pubDate,
+    lang:a.lang,
+  };
+}
+
 
 app.get('/api/news',(req,res)=>{
   const{category,source,lang,limit=50,page=1}=req.query;
