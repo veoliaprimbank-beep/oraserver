@@ -223,7 +223,9 @@ function detectCat(title,cats,def){
   return cats?.[0]||def||'Societate';
 }
 
-function withAI(a){return{...a,displayTitle:a.aiTitle||a.title,displayDescription:a.summary||a.description};}function liteArticle(a){
+function withAI(a){return{...a,displayTitle:a.aiTitle||a.title,displayDescription:a.summary||a.description};}
+
+function liteArticle(a){
   return {
     id:a.id,
     source:a.source,
@@ -239,16 +241,15 @@ function withAI(a){return{...a,displayTitle:a.aiTitle||a.title,displayDescriptio
 
 
 app.get('/api/news',(req,res)=>{
-  const{category,source,lang,limit=50,page=1}=req.query;
+  const{category,source,lang,limit=50,page=1,lite}=req.query;
   let arts=[...cache.articles];
   if(category)arts=arts.filter(a=>a.category.toLowerCase()===category.toLowerCase());
   if(source)arts=arts.filter(a=>a.sourceId===source);
   if(lang)arts=arts.filter(a=>a.lang===lang);
-  arts=arts.map(withAI);
+  arts=lite==='1'?arts.map(liteArticle):arts.map(withAI);
   const lim=+limit,pg=+page,start=(pg-1)*lim;
   res.json({success:true,total:arts.length,page:pg,limit:lim,articles:arts.slice(start,start+lim),lastUpdate:cache.lastUpdate});
 });
-
 app.get('/api/news/top',(req,res)=>res.json({success:true,articles:cache.articles.slice(0,10).map(withAI),lastUpdate:cache.lastUpdate}));
 app.get('/api/news/search',(req,res)=>{
   const q=(req.query.q||'').toLowerCase();
